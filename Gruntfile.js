@@ -29,7 +29,7 @@ module.exports = function(grunt) {
       js: {
         src: [
         'bower_components/jquery/dist/jquery.js',
-        'public/js/jquery.cover.js',
+        'bower_components/jquery-cover/jquery.cover.js',
         'bower_components/OwlCarousel/owl-carousel/owl.carousel.js',
         'bower_components/bootstrap/dist/js/bootstrap.js',
         'bower_components/angular/angular.js',
@@ -43,9 +43,10 @@ module.exports = function(grunt) {
       combine: {
         files: {
           'public/styles/libs.css': [
-          'bower_components/bootstrap/dist/css/bootstrap.css',
+          'bower_components/jquery-cover/jquery.cover.css',
           'bower_components/OwlCarousel/owl-carousel/owl.carousel.css',
           'bower_components/OwlCarousel/owl-carousel/owl.theme.css',
+          'bower_components/bootstrap/dist/css/bootstrap.css',
           'bower_components/font-awesome/css/font-awesome.min.css'
           ]
         }
@@ -55,7 +56,12 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         files: {
-          'public/js/libs.js': 'public/js/libs.js'
+          'public/js/min/libs.min.js': 'public/js/libs.js'
+        }
+      },
+      scripts: {
+        files: {
+          'public/js/min/app.min.js': 'public/js/app.js'
         }
       }
     },
@@ -65,9 +71,9 @@ module.exports = function(grunt) {
         files: ['public/less/*.less'],
         tasks: ['less']
       },
-      js: {
+      scripts: {
         files: ['public/js/app.js'],
-        tasks: ['concat']
+        tasks: ['uglify:scripts']
       }
     }
   });
