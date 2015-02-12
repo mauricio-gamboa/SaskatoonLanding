@@ -29,8 +29,11 @@ module.exports = function(grunt) {
       js: {
         src: [
         'bower_components/jquery/dist/jquery.js',
+        'public/js/jquery.cover.js',
         'bower_components/OwlCarousel/owl-carousel/owl.carousel.js',
-        'bower_components/bootstrap/dist/js/bootstrap.js'
+        'bower_components/bootstrap/dist/js/bootstrap.js',
+        'bower_components/angular/angular.js',
+        'public/js/app.js'
         ],
         dest: 'public/js/libs.js'
       }
@@ -61,6 +64,10 @@ module.exports = function(grunt) {
       styles: {
         files: ['public/less/*.less'],
         tasks: ['less']
+      },
+      js: {
+        files: ['public/js/app.js'],
+        tasks: ['concat']
       }
     }
   });
