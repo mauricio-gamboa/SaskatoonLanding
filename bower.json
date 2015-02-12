@@ -12,6 +12,6 @@
     "font-awesome": "~4.3.0",
     "OwlCarousel": "https://github.com/OwlFonk/OwlCarousel.git#~1.3.2",
     "angular": "~1.3.13",
-    "jquery-cover": "https://github.com/greenish/jquery-cover"
+    "jquery-cover": "https://github.com/greenish/jquery-cover.git#~1.0.0"
   }
 }

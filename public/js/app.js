@@ -48,3 +48,7 @@ myApp.directive('owlHome', [function () {
     }
   }
 }]);
+
+myApp.controller('TimeController', ['$scope', '$log', function($scope, $log) {
+  $scope.date = new Date();
+}]);

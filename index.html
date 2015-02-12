@@ -1,295 +1,254 @@
-  <!DOCTYPE html>
-  <html lang="en" ng-app="saskatoon">
-  <head>
-    <title>Saskatoon Landing</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="stylesheet" href="public/styles/libs.css">
-    <link rel="stylesheet" href="public/styles/styles.css">
-    <link rel="stylesheet"  href="public/styles/jquery.cover.css">
-  </head>
-  <body>
-    <img src="public/images/bg.jpg" class="myBackgroundImage" background>
-    <div class="wrapper">
-      <nav class="navbar navbar-default">
+<!DOCTYPE html>
+<html lang="en" data-ng-app="saskatoon">
+<head>
+  <title>Saskatoon Landing</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <div class="main-bar">
-          <div class="weather">
-            <div class="cloud pull-left">29°C</div>
-            <div class="city-info pull-right">
-              <span>San José</span>
-              <span class="details"><a href="#">Details</a></span>
-            </div>
+  <link rel="stylesheet" href="public/styles/libs.css">
+  <link rel="stylesheet" href="public/styles/styles.css">
+  <link rel="stylesheet"  href="public/styles/jquery.cover.css">
+</head>
+<body>
+  <img alt="" src="public/images/bg.jpg" class="myBackgroundImage" data-background>
+  
+  <div class="wrapper">
+    <nav class="navbar navbar-default">
+      <div class="main-bar">
+        <div class="weather">
+          <div class="cloud pull-left">29°C</div>
+          <div class="city-info pull-right">
+            <span>San José</span>
+            <span class="details"><a href="#">Details</a></span>
           </div>
-          <div class="homepage ">
-            <div class="arrow_box">
-              <a class="" href="#"><i class="fa fa-home"></i>
-                Make us your homepage</a>
-              </div>
-            </div>
-            <div class="hour hide-s hide-xs">
-              <span>12:01 PM</span>
-              <span class="details">Sunday, January 26 2015</span>
-
-            </div>
-          </div>
-        </nav>
-
-        <div class="logo">
-          <img src="public/images/logo.png" alt="logo">
         </div>
-        <div class="container main">
-          <div class="main-panel col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                </button>
-              </span>
+        <div class="homepage ">
+          <div class="arrow_box">
+            <a class="" href="#"><i class="fa fa-home"></i> Make us your homepage</a>
+          </div>
+        </div>
+        <div class="hour hide-s hide-xs" data-ng-controller="TimeController">
+          <span>{{date | date:'shortTime'}}</span>
+          <span class="details">{{date | date:'fullDate'}}</span>
+        </div>
+      </div>
+    </nav>
+    <!-- closes nav -->
+
+    <div class="logo">
+      <img src="public/images/logo.png" alt="logo">
+    </div>
+    <!-- closes logo -->
+
+    <div class="container before-footer">
+      <div class="row">
+        <div class="main-panel col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="">
+            <span class="input-group-btn"><button class="btn btn-default" type="button"><i class="fa fa-search"></i></button></span>
+          </div>
+          <!-- closes input-group -->
+          <hr>
+
+          <div id="owl-demo" class="owl-carousel owl-theme" data-owl-home>
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
             </div>
+            <!-- closes item -->
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
+            </div>
+            <!-- closes item -->
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
+            </div>
+            <!-- closes item -->
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
+            </div>
+            <!-- closes item -->
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
+            </div>
+            <!-- closes item -->
+            <div class="item">
+              <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank"><img src="public/images/bookmarks/google.jpg" alt="bookmark"></a>
+
+              <div class="tools">
+                <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
+                <a class="bullets pull-right" href="" data-open-tooltip><span></span><span></span><span></span></a>
+                <div class="my-tooltip">
+                  <ul class="list-unstyled">
+                    <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
+                    <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
+                  </ul>
+                </div>
+                <!-- closes my-tooltip -->
+              </div>
+              <!-- closes tools -->
+              <h5>Google</h5>
+            </div>
+            <!-- closes item -->
+          </div>
+          <!-- closes owl-demo -->
+
+          <div class="links">
             <hr>
-            <div id="owl-demo" class="owl-carousel owl-theme" owl-home>
-              <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="" open-tooltip>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="" open-tooltip>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-                  <div class="item">
-                <a class="img-link" href="https://www.google.com/?gws_rd=ssl" target="_blank">
-                  <img src="public/images/bookmarks/google.jpg" alt="bookmark">
-                </a>
-
-                <div class="tools">
-                  <img class="pull-left" src="public/images/bookmarks/google-icon.png" alt="icon">
-                  <a class="bullets pull-right" href="">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </a>
-                  <div class="my-tooltip">
-                    <ul>
-                      <li class="edit"><a href=""><i class="fa fa-pencil"></i> Edit</a></li>
-                      <li class="remove"><a href=""><i class="fa fa-times"></i> Remove</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <h5>Google</h5>
-              </div>
-            </div>
-            <div class="links">
-              <hr>
-              <a class="pull-left hide-xs" href="#"><i class="fa fa-home"></i> Make homepage</a>
-              <a class="pull-right" data-toggle="modal" data-target="#favorite" href="#"><i class="fa fa-plus"></i> Add favorite</a>
-            </div>
+            <a class="pull-left hide-xs" href="#"><i class="fa fa-home"></i> Make homepage</a>
+            <a class="pull-right" data-toggle="modal" data-target="#favorite" href="#"><i class="fa fa-plus"></i> Add favorite</a>
           </div>
-        </div> 
-        <div class="push"></div>
-
-        <footer id="footer" class="navbar  clearfix">
-          <div class="container-fluid">
-            <div class="navbar-text">
-              <div class="pull-left">
-                <i class="fa fa-map-marker"></i>Richmond Heights
-                <span>•</span>
-                <a href="http://tinyurl.com/tbvalid" target="_blank" > Saskatoon, SK</a>
-              </div>
-              <div class="divider"></div>
-              <div class="change pull-right">
-                <a data-toggle="modal" data-target="#myModal" href="" > Change Background <i class="fa fa-cog"></i></a>
-              </div>  
-            </div>
-          </div>
-
+          <!-- closes links -->
         </div>
-      </footer>
+        <!-- closes main-panel -->
+      </div>
+      <!-- closes row -->
+    </div>
+    <!-- closes container -->
 
-      <div class="modal fade custom change-bg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Change background</h4>
-            </div>
-            <div class="modal-body">
-              <h3>Picture requirements</h3>
-              <p>Image Format. JPEG</p>
-              <p>Size of Image. Minimum 10 KB – Maximum 300 KB Minimum Dimensions. 350 pixels (width) x 350 pixels (height).</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Uploading done!</button>
-            </div>
+    <footer id="footer" class="navbar clearfix">
+      <div class="container-fluid">
+        <div class="navbar-text">
+          <div class="pull-left">
+            <i class="fa fa-map-marker"></i> Richmond Heights <span>•</span> <a href="http://tinyurl.com/tbvalid" target="_blank" > Saskatoon, SK</a>
           </div>
+          <div class="divider"></div>
+          <div class="change pull-right">
+            <a data-toggle="modal" data-target="#myModal" href="" > Change Background <i class="fa fa-cog"></i></a>
+          </div>
+        </div>
+        <!-- closes navbar -->
+      </div>
+      <!-- closes container -->
+    </footer>
+  </div>
+  <!-- closes wrapper -->
+
+  <div class="modal fade custom change-bg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel1">Change background</h4>
+        </div>
+        <!-- closes modal header -->
+        <div class="modal-body">
+          <h3>Picture requirements</h3>
+          <p>Image Format. JPEG</p>
+          <p>Size of Image. Minimum 10 KB – Maximum 300 KB Minimum Dimensions. 350 pixels (width) x 350 pixels (height).</p>
+        </div>
+        <!-- closes modal-body -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Uploading done!</button>
+        </div>
+        <!-- closes modal-footer -->
+      </div>
+      <!-- closes modal content -->
+    </div>
+    <!-- closes modal-dialog -->
+  </div>
+  <!-- closes modal -->
+
+  <div class="modal fade custom favorite" id="favorite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel2">Add favorite</h4>
+        </div>
+        <!-- closes modal-header -->
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="websitename">Website name</label>
+              <input type="text" class="form-control" id="websitename" placeholder="">
+            </div>
+            <div class="form-group">
+              <label for="url">url</label>
+              <input type="text" class="form-control" id="url" placeholder="">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default">Add to my favorites</button>
         </div>
       </div>
+      <!-- closes modal content -->
+    </div>
+    <!-- closes modal dialog -->
+  </div>
+  <!-- close modal -->
 
-      <div class="modal fade custom favorite" id="favorite" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Add favorite</h4>
-            </div>
-            <div class="modal-body">
-              <form>
-                <div class="form-group">
-                  <label for="websitename">Website name</label>
-                  <input type="" class="form-control" id="websitename" placeholder="">
-                </div>
-                <div class="form-group">
-                  <label for="url">url</label>
-                  <input type="" class="form-control" id="url" placeholder="">
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default">Add to my favorites</button>
-            </div>
-          </div>
-        </div>
-      </div>
-        <script src="public/js/libs.js"></script>
-    </body>
-    </html>
+  <script src="public/js/min/libs.min.js"></script>
+  <script src="public/js/min/app.min.js"></script>
+</body>
+</html>
