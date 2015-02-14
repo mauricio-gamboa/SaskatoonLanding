@@ -40,10 +40,10 @@ body {
 }
 
 .before-footer {
-  padding-bottom: 40px;
+  padding-bottom: 60px;
 
   @media @xs {
-    padding-bottom: 80px;
+    padding-bottom: 90px;
   }
 }
 
@@ -367,14 +367,13 @@ Main styles
       }
     }
   }
+  
   .links {
-    bottom: 10px;
-    position: absolute;
-    width: 95%;
     a {
       margin-top: 10px;
       text-transform: uppercase;
       font-size: 11px;
+      
       &:hover {
         color: @blue-2;
       }
@@ -497,7 +496,10 @@ Slider styles
   border-radius: 3px;
   text-align: center;
   font-size: 13px;
+  
   .img-link {
+    display: block;
+    
     img{
       width: 100%;
       border: 1px solid #fff;
@@ -555,14 +557,15 @@ Slider styles
   }
   .bullets {
     margin-right: 3px;
+    
     span {
-      background: @graylight;
+      background-color: @graylight;
       border-radius: 20px;
-      display: block;
-      height: 6px;
-      width: 6px;
-      padding: 4px;
       display: inline-block;
+      height: 6px;
+      margin: 0 1px;
+      padding: 4px;
+      width: 6px;
     }
 
     &:hover, &:focus{
