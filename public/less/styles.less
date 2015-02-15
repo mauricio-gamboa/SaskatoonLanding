@@ -27,10 +27,13 @@ General Styles
 ***************************/
 .small-container {
   max-width: 940px;
+  margin: 0 auto;
 }
+
 * {
   margin: 0;
 }
+
 html,
 body {
   margin:0;
@@ -144,6 +147,10 @@ p {
   }
 }
 
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
 /***************************
 ****************************
 Fonts
@@ -200,6 +207,17 @@ Fonts
 Top styles
 ****************************
 ***************************/
+
+.navigation {
+  .loading {
+    line-height: 59px;
+  }
+}
+
+.loading {
+  padding: 0 15px;
+}
+
 .homepage {
   margin: 0 auto;
   text-align: center;
@@ -255,12 +273,15 @@ Top styles
   width: auto;
   z-index: 3;
   position: relative;
+  
   .cloud {
-    background: url("../images/cloud.png") no-repeat  20px center transparent;
-    font-family: 'proxima_novasemibold';
+    background-position: 0 50%;
+    background-repeat: no-repeat;
     color: #fff;
+    font-family: 'proxima_novasemibold';
     font-size: 25px;
-    padding: 12px 15px 11px 65px;
+    line-height: 59px;
+    padding: 0 15px;
   }
   .city-info {
     text-align: left;
@@ -300,7 +321,11 @@ Top styles
   text-align: right;
   float: right;
   width: 300px;
-  padding: 8px 20px;
+  
+  .hour-details {
+    padding: 8px 15px;
+  }
+  
   span{
     display: block;
     opacity: 0.6;

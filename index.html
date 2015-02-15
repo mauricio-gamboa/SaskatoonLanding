@@ -11,23 +11,32 @@
 <body>
   <div class="wrapper">
     <img alt="" src="public/images/bg.jpg" class="myBackgroundImage" data-background>
-    <nav class="navbar navbar-default">
+    <nav class="navigation navbar navbar-default">
       <div class="main-bar">
-        <div class="weather">
-          <div class="cloud pull-left">29°C</div>
-          <div class="city-info pull-right">
-            <span>San José</span>
-            <span class="details"><a href="#">Details</a></span>
+        <div class="weather" data-ng-controller="WeatherController">
+          <div data-ng-show="weatherData">
+            <div class="ng-cloak cloud pull-left">
+              <img ng-src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png">
+              {{weatherData.main.temp | number:1}} &deg;C
+            </div>
+            <div class="city-info pull-right">
+              <span class="ng-cloak">{{weatherData.name}}</span>
+              <span class="details"><a data-ng-href="http://openweathermap.org/city/{{weatherData.id}}" target="_blank">Details</a></span>
+            </div>
           </div>
+          <div class="loading" data-ng-hide="weatherData">Loading weather...</div>
         </div>
-        <div class="homepage ">
+        <div class="homepage">
           <div class="arrow_box">
             <a class="" href="#"><i class="fa fa-home"></i> Make us your homepage</a>
           </div>
         </div>
         <div class="hour hide-s hide-xs" data-ng-controller="TimeController">
-          <span>{{date | date:'shortTime'}}</span>
-          <span class="details">{{date | date:'fullDate'}}</span>
+          <div class="hour-details" data-ng-show="date">
+            <span>{{date | date:'shortTime'}}</span>
+            <span class="details">{{date | date:'fullDate'}}</span>
+          </div>
+          <div class="loading" data-ng-hide="date">Loading clock...</div>
         </div>
       </div>
     </nav>
