@@ -25,6 +25,9 @@ Variables
 General Styles
 ****************************
 ***************************/
+.small-container {
+  max-width: 940px;
+}
 * {
   margin: 0;
 }
@@ -88,10 +91,14 @@ a, input {
   &:active,
   &:hover,
   &:focus {
-    color: white;
     outline: none;
     text-decoration: none;
   }
+}
+a {
+  &:focus {
+   color: #fff;
+ }
 }
 p {
   font-family: 'Conv_ProximaNova-Reg';
@@ -311,11 +318,14 @@ Top styles
 ****************************
 Main styles
 ****************************
+
 ***************************/
 .logo {
   margin: 0 auto;
   padding: 60px 0 30px 0;
   text-align: center;
+  position: relative;
+  z-index: 1000;
   @media @xs {
     padding: 90px 0 30px 0;
   }
@@ -328,9 +338,9 @@ Main styles
     }
   }
 }
-
 .main-panel {
   position: relative;
+  padding-bottom: 100px;
   .input-group {
     margin-bottom: 30px;
   }
@@ -347,18 +357,21 @@ Main styles
     &:hover {
       color: @gray-dark;
     }
-
+    &:focus {
+      border: 1px solid @blue-1;
+    }
   }
   .input-group-btn {
     background: #fff;
     border-color: transparent;
+    
     .btn {
       color: #fff;
       font-size: 22px;
       background: @blue-1;
       border-color: @blue-1;
       border-radius: 0;
-      margin-right: 3px;
+      margin: 0 3px;
       &:hover {
         background: @blue-2;
         border-color: transparent;
@@ -505,84 +518,90 @@ Slider styles
       border: 1px solid #fff;
     }
   }
-  .tools {
-    background: #fff;
-    padding: 2px;
-    overflow: hidden;
-    img {
-      width: 16px;
-      height: 16px;
-      margin-top: 3px;
-    }
+  > div {
+    position: relative;
+    &:first-child {
+     margin-bottom: 20px;
+   }
+ }
+ .tools {
+  background: #fff;
+  padding: 2px;
+  overflow: hidden;
+  img {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
   }
-  
-  .my-tooltip {
-    display: none;
-    background: url("../images/tooltip.png") no-repeat  0px 0px transparent;
-    height: 67px;
-    position: absolute;
-    right: 6px;
-    top: 20px;
-    width: 91px;
-    z-index: 3;
-    .edit {
-      border-bottom: 1px solid @black-1;
-    }
-    ul {
-      padding-left: 0;
-      li {
-        text-align: left;
-        list-style: none;
-        padding: 6px 0 6px 6px;
+}
+
+.my-tooltip {
+  display: none;
+  background: url("../images/tooltip.png") no-repeat  0px 0px transparent;
+  height: 67px;
+  position: absolute;
+  right: -5px;
+  top: 10px;
+  width: 91px;
+  z-index: 3;
+  .edit {
+    border-bottom: 1px solid @black-1;
+  }
+  ul {
+    padding-left: 0;
+    li {
+      text-align: left;
+      list-style: none;
+      padding: 6px 0 6px 6px;
+      &:hover {
+        color: @gray-tool;
+      }
+      a {
+        text-shadow : none;
+        text-transform: uppercase;
+        font-size: 11px;
+        font-family: Arial;
+        font-weight: bold;
+        display: block;
+        i {
+          font-size: 12px;
+          padding-right: 3px;
+        }
         &:hover {
           color: @gray-tool;
         }
-        a {
-          text-shadow : none;
-          text-transform: uppercase;
-          font-size: 11px;
-          font-family: Arial;
-          font-weight: bold;
-          display: block;
-          i {
-            font-size: 12px;
-            padding-right: 3px;
-          }
-          &:hover {
-            color: @gray-tool;
-          }
-        }
-      } 
-    }
+      }
+    } 
   }
-  .bullets {
-    margin-right: 3px;
-    
+}
+.bullets {
+  margin-right: 3px;
+
+  span {
+    background-color: @graylight;
+    border-radius: 20px;
+    display: inline-block;
+    height: 6px;
+    margin: 0 1px;
+    padding: 4px;
+    width: 6px;
+  }
+
+  &:hover, &:focus{
+    text-decoration: none;
     span {
-      background-color: @graylight;
-      border-radius: 20px;
-      display: inline-block;
-      height: 6px;
-      margin: 0 1px;
-      padding: 4px;
-      width: 6px;
-    }
-
-    &:hover, &:focus{
+      background: @blue-1;
       text-decoration: none;
-      span {
-        background: @blue-1;
-        text-decoration: none;
-      }
-    }
-
-    &.open {
-      span {
-        background: @blue-1;
-        text-decoration: none;
-      }
     }
   }
+
+  &.open {
+    span {
+      background: @blue-1;
+      text-decoration: none;
+    }
+  }
+}
 }
 
 
@@ -655,20 +674,20 @@ Modal styles
     }
     .form-control {
       border: 0;
-      box-shadow: none;
       border-radius: 2px;
       height: 40px;
+      box-shadow: none;
       &:focus {
-        border-color: transparent;
-        box-shadow: none;
-      }
-    }
-    .modal-footer {
-      border: none;
-      text-align: left;
-      padding: 0;
-    }
+       border: 1px solid @blue-1;
+       box-shadow: none;
+     }
+   }
+   .modal-footer {
+    border: none;
+    text-align: left;
+    padding: 0;
   }
+}
 }
 .modal.change-bg {
   .modal-title {
@@ -738,28 +757,31 @@ Search page styles
   }
   
   .input-group {
-    padding: 5px 0 10px 35px;
-    
+    padding: 5px 0 10px 35px; 
     @media @xs {
       padding: 0;
     }
-    
     .form-control {
       color: @gray-dark;
       border: none;
       border-radius: 0;
       width: 400px;
-
-      @media  @xs {
+      box-shadow: none;
+      @media (max-width: 1280px) {
+        width: 290px;
+      }
+      @media (max-width: 1024px) {
+        width: 260px;
+      }
+      @media @xs {
         width: 100%;
       }
-      
       &:hover {
         color: @gray-dark;
       }
       
       &:focus {
-        border-color: transparent;
+      border: 1px solid @blue-1;
         box-shadow: none;
       }
     }
@@ -786,7 +808,6 @@ Search page styles
     height: 40px;
     bottom: 0;
     left: 0;
-
     @media @xs {
       height: 151px;
     }
@@ -803,7 +824,7 @@ Search page styles
     }
     
     ul {
-      text-align: center;
+      text-align: left;
       margin: 0;
       
       li {
@@ -822,6 +843,9 @@ Search page styles
           }
         }
       }
+       @media @xs {
+      text-align: center;
+    }
     }
 
     @media @xs {
