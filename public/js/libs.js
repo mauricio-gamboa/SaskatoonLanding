@@ -39375,6 +39375,47 @@ myApp.directive('owlHome', [function () {
   }
 }]);
 
-myApp.controller('TimeController', ['$scope', '$log', function($scope, $log) {
-  $scope.date = new Date();
+myApp.controller('TimeController', ['$scope', '$timeout', function($scope, $timeout) {
+  $scope.tickInterval = 1000;
+
+  var tick = function() {
+    $scope.date = Date.now();
+    $timeout(tick, $scope.tickInterval);
+  };
+
+  $timeout(tick, $scope.tickInterval);
+}]);
+
+myApp.controller('WeatherController', ['$scope', '$log', 'weatherService', function($scope, $log, weatherService) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      $scope.$apply(function(){
+        weatherService.getWeather(position.coords.latitude, position.coords.longitude).then(function(data) {
+          $scope.weatherData = data;
+        });
+      });
+    });
+  }
+}]);
+
+myApp.factory('weatherService', ['$http', '$q', function ($http, $q) {
+  function getWeather (latitude, longitude) {
+    var deferred = $q.defer();
+    
+    $http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=9ce175c467d3ee9b63148b5e4065dcd7')
+    
+    .success(function (data) {
+      deferred.resolve(data);
+    })
+    
+    .error(function (err) {
+      deferred.reject(err);
+    });
+    
+    return deferred.promise;
+  };
+
+  return {
+    getWeather: getWeather
+  };
 }]);
