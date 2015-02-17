@@ -55,6 +55,24 @@ myApp.directive('owlHome', [function () {
   }
 }]);
 
+myApp.directive('focusParent', [function () {
+  return {
+    restrict: 'A',
+
+    link: function (scope, element) {
+      var $parent = element.parent();
+      
+      element.on('focus', function () {
+        $parent.addClass('isFocused');
+      });
+
+      element.on('blur', function () {
+        $parent.removeClass('isFocused');
+      });
+    }
+  }
+}]);
+
 myApp.controller('TimeController', ['$scope', '$timeout', function($scope, $timeout) {
   $scope.tickInterval = 1000;
 
