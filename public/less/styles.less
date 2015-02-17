@@ -252,11 +252,12 @@ Top styles
     position: relative;
     background: url("../images/transparency-top.png")
   }
-  a{
+  
+  a {
     display: block;
-    padding: 20px 25px;
+    padding: 21px 25px;
     font-family: 'proxima_nova_rgbold';
-    font-size: 13px;
+    font-size: 12px;
     color: #fff;
     text-decoration: none;
   }
@@ -381,29 +382,37 @@ Main styles
     }
   }
 }
+
 .main-panel {
   position: relative;
   padding-bottom: 100px;
+  
   .input-group {
     margin-bottom: 30px;
+    border: 1px solid #fff;
+
+    &.isFocused {
+      border: 1px solid @blue-1;
+    }
   }
+  
   hr {
     margin: 0;
     opacity: 0.2;
   }
+  
   .form-control {
     border-radius: 0;
     box-shadow: none;
     height: 50px;
-    border: 1px solid #fff;
+    border: none;
     font-size: 18px;
+    
     &:hover {
       color: @gray-dark;
     }
-    &:focus {
-      border: 1px solid @blue-1;
-    }
   }
+  
   .input-group-btn {
     background: #fff;
     border-color: transparent;
@@ -415,11 +424,11 @@ Main styles
       border-color: @blue-1;
       border-radius: 0;
       margin: 0 3px;
+      
       &:hover {
         background: @blue-2;
         border-color: transparent;
         z-index: 1;
-
       }
     }
   }
@@ -542,7 +551,6 @@ Slider styles
 }
 
 .item {
-
   font-family: Arial, Helvetica, sans-serif;
   margin: 10px;
   color: #FFF;
@@ -552,114 +560,121 @@ Slider styles
   border-radius: 3px;
   text-align: center;
   font-size: 13px;
-  
+
   .img-link {
     display: block;
-    
+
     img{
       width: 100%;
       border: 1px solid #fff;
     }
   }
+
   > div {
     position: relative;
+    
     &:first-child {
-     margin-bottom: 20px;
-   }
- }
- .tools {
-  background: #fff;
-  padding: 2px;
-  overflow: hidden;
-  img {
-    width: 16px;
-    height: 16px;
-    margin-top: 3px;
+      margin-bottom: 20px;
+    }
   }
-}
 
-.my-tooltip {
-  display: none;
-  background: url("../images/tooltip.png") no-repeat  0px 0px transparent;
-  height: 67px;
-  position: absolute;
-  right: -5px;
-  top: 10px;
-  width: 91px;
-  z-index: 3;
-  .edit {
-    border-bottom: 1px solid @black-1;
+  .tools {
+    background: #fff;
+    padding: 2px;
+    overflow: hidden;
+    
+    img {
+      width: 16px;
+      height: 16px;
+      margin-top: 3px;
+    }
   }
-  ul {
-    padding-left: 0;
-    li {
-      text-align: left;
-      list-style: none;
-      padding: 6px 0 6px 6px;
-      &:hover {
-        color: @gray-tool;
-      }
-      a {
-        text-shadow : none;
-        text-transform: uppercase;
-        font-size: 11px;
-        font-family: Arial;
-        font-weight: bold;
-        display: block;
-        i {
-          font-size: 12px;
-          padding-right: 3px;
-        }
+
+  .my-tooltip {
+    display: none;
+    background: url("../images/tooltip.png") no-repeat  0px 0px transparent;
+    height: 67px;
+    position: absolute;
+    right: -15px;
+    top: 10px;
+    width: 91px;
+    z-index: 3;
+    
+    .edit {
+      border-bottom: 1px solid @black-1;
+    }
+    
+    ul {
+      padding-left: 0;
+      
+      li {
+        text-align: left;
+        list-style: none;
+        padding: 6px 0 6px 6px;
+        
         &:hover {
           color: @gray-tool;
         }
+        
+        a {
+          text-shadow : none;
+          text-transform: uppercase;
+          font-size: 11px;
+          font-family: Arial;
+          font-weight: bold;
+          display: block;
+          
+          i {
+            font-size: 12px;
+            padding-right: 3px;
+          }
+          
+          &:hover {
+            color: @gray-tool;
+          }
+        }
+      } 
+    }
+  }
+
+  .bullets {
+    margin-right: 3px;
+
+    i {
+      color: @blue-1;
+    }
+
+    &:hover, &:focus{
+
+      text-decoration: none;
+
+      i {
+        color: @blue-1;
+        text-decoration: none;
       }
-    } 
-  }
-}
-.bullets {
-  margin-right: 3px;
+    }
 
-  span {
-    background-color: @graylight;
-    border-radius: 20px;
-    display: inline-block;
-    height: 6px;
-    margin: 0 1px;
-    padding: 4px;
-    width: 6px;
-  }
-
-  &:hover, &:focus{
-    text-decoration: none;
-    span {
-      background: @blue-1;
-      text-decoration: none;
+    &.open {
+      i {
+        color: @blue-1;
+        text-decoration: none;
+      }
     }
   }
-
-  &.open {
-    span {
-      background: @blue-1;
-      text-decoration: none;
-    }
-  }
-}
 }
 
 
 .customNavigation{
   text-align: center;
 }
-//use styles below to disable ugly selection
-.customNavigation a{
+
+.customNavigation a {
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
 }
 
 /***************************
@@ -800,32 +815,35 @@ Search page styles
   }
   
   .input-group {
-    padding: 5px 0 10px 35px; 
+    border: 1px solid @gray-3;
+    margin: 5px 0 10px 35px;
+    padding-right: 1px;
+    
     @media @xs {
-      padding: 0;
+      margin: 0;
     }
+    
     .form-control {
       color: @gray-dark;
       border: none;
       border-radius: 0;
       width: 400px;
       box-shadow: none;
+      
       @media (max-width: 1280px) {
         width: 290px;
       }
+      
       @media (max-width: 1024px) {
         width: 260px;
       }
+      
       @media @xs {
         width: 100%;
       }
+      
       &:hover {
         color: @gray-dark;
-      }
-      
-      &:focus {
-        border: 1px solid @blue-1;
-        box-shadow: none;
       }
     }
     
@@ -840,6 +858,10 @@ Search page styles
       &:hover {
         background: @blue-2;
       }
+    }
+
+    &.isFocused {
+      border: 1px solid @blue-1;
     }
   }
 
