@@ -20,6 +20,15 @@ myApp.directive('openTooltip', [function () {
           element.addClass('open');
         }
       });
+
+      $(document).mouseup(function (e) {
+        var container = $('.item > div');
+
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+          $('.my-tooltip').slideUp();
+          $('.bullets').removeClass('open');
+        }
+      });
     }
   };
 }]);
