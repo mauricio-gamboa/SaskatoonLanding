@@ -39341,7 +39341,7 @@ myApp.directive('openTooltip', [function () {
         }
       });
     }
-  }
+  };
 }]);
 
 myApp.directive('background', [function () {
@@ -39356,7 +39356,7 @@ myApp.directive('background', [function () {
         callbacks: {}
       });
     }
-  }
+  };
 }]);
 
 myApp.directive('owlHome', [function () {
@@ -39372,7 +39372,25 @@ myApp.directive('owlHome', [function () {
         itemsMobile : true // itemsMobile disabled - inherit from itemsTablet option
       });
     }
-  }
+  };
+}]);
+
+myApp.directive('focusParent', [function () {
+  return {
+    restrict: 'A',
+
+    link: function (scope, element) {
+      var $parent = element.parent();
+      
+      element.on('focus', function () {
+        $parent.addClass('isFocused');
+      });
+
+      element.on('blur', function () {
+        $parent.removeClass('isFocused');
+      });
+    }
+  };
 }]);
 
 myApp.controller('TimeController', ['$scope', '$timeout', function($scope, $timeout) {
@@ -39387,22 +39405,16 @@ myApp.controller('TimeController', ['$scope', '$timeout', function($scope, $time
 }]);
 
 myApp.controller('WeatherController', ['$scope', '$log', 'weatherService', function($scope, $log, weatherService) {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      $scope.$apply(function(){
-        weatherService.getWeather(position.coords.latitude, position.coords.longitude).then(function(data) {
-          $scope.weatherData = data;
-        });
-      });
-    });
-  }
+  weatherService.getWeather('Saskatoon').then(function(data) {
+    $scope.weatherData = data;
+  });
 }]);
 
 myApp.factory('weatherService', ['$http', '$q', function ($http, $q) {
-  function getWeather (latitude, longitude) {
+  function getWeather (name) {
     var deferred = $q.defer();
     
-    $http.get('http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&units=metric&APPID=9ce175c467d3ee9b63148b5e4065dcd7')
+    $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + name + '&units=metric&APPID=9ce175c467d3ee9b63148b5e4065dcd7')
     
     .success(function (data) {
       deferred.resolve(data);
@@ -39413,7 +39425,7 @@ myApp.factory('weatherService', ['$http', '$q', function ($http, $q) {
     });
     
     return deferred.promise;
-  };
+  }
 
   return {
     getWeather: getWeather
