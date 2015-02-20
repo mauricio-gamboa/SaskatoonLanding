@@ -17,7 +17,7 @@
           <div data-ng-show="weatherData">
             <div class="ng-cloak cloud pull-left">
               <img ng-src="http://openweathermap.org/img/w/{{weatherData.weather[0].icon}}.png">
-              {{weatherData.main.temp | number:1}} &deg;C
+              {{weatherData.main.temp | number:0}} &deg;C
             </div>
             <div class="city-info pull-right">
               <span class="ng-cloak">Saskatoon, SK</span>
